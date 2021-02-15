@@ -26,4 +26,27 @@ describe "User Events API" do
         expect(response).to be_successful
         expect(event[:id]).to eq(id)
     end
+
+    it "can create a new user event with necessary keys" do
+        headers = { "CONTENT_TYPE" => "application/json" }
+
+        post "/api/v1/user_events", params: '{"event" : {"name" : "test button", "event_type" : "click",    "at" : "2020-06-12T00:00:01", "button_color" : "red" }}', headers: headers
+
+        event = UserEvent.last
+
+        expect(response).to be_successful
+        expect(UserEvent.count).to eq(1)
+        expect(event.event_type).to eq('click')
+    end
+
+    it "cannot create new user event without necessary keys" do
+        headers = { "CONTENT_TYPE" => "application/json" }
+
+        post "/api/v1/user_events", params: '{"event" : {"wrong_key" : "test button", "event_type" : "click",    "at" : "2020-06-12T00:00:01", "button_color" : "red" }}', headers: headers
+
+        event = UserEvent.last
+        
+        expect(response).to be_successful
+        expect(UserEvent.count).to eq(0)
+    end
 end
