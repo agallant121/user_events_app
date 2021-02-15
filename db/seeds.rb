@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+10.times do
+    UserEvent.create(event_type: [0, 1].shuffle.pop, 
+                     event_data: '{"event" : {"name" : "test button", "at" : "2020-06-12T00:00:01", "button_color" : "red" }}')
+end
