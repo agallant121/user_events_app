@@ -29,7 +29,7 @@ Hello! Below I will describe the steps to complete the `curl` calls based in the
 - This decision is why I do not have something like `params.permit(xyz)` as a private method in the controller.
 - I wanted to keep it simple and I think my refactoring in both my tests and controllers have made for an easy-to-follow read/understanding of my work.
 
-## All in one place:
+## All links in one place:
 - Main app to be posted to/see added objects: `https://event-receiving-app.herokuapp.com/api/v1/user_events`
 - Index view to see individual objects: `https://event-receiving-app.herokuapp.com/api/v1/user_events/5`
 - BONUS to see stats from last 24 hours: `https://event-receiving-app.herokuapp.com/api/v1/stats`
